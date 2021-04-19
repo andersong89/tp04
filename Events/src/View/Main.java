@@ -3,7 +3,7 @@ package View;
 import Model.Cliente;
 import Model.Gastos;
 import Model.Usuario;
-import Model.Pessoa;
+
 
 public class Main {
 
@@ -20,5 +20,7 @@ public class Main {
 		
 		Usuario usuario = new Usuario("joao", "joaop@gmail.com", "1234", "alto");
 		System.out.println(usuario.getNome());
+		
+	
 	}
 }
