@@ -13,16 +13,20 @@ import javax.swing.ImageIcon;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class Cadastros extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textNome;
-	private JTextField textClassificacao;
 	private JTextField txtIdade;
 	private JTextField txtTelefone;
 	private JTextField txtEmail;
 	private JTextField txtEndereco;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -46,7 +50,7 @@ public class Cadastros extends JFrame {
 	public Cadastros() {
 		setTitle("EventApp");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 383);
+		setBounds(100, 100, 450, 439);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.controlText);
 		contentPane.setForeground(SystemColor.desktop);
@@ -61,12 +65,6 @@ public class Cadastros extends JFrame {
 		
 		contentPane.add(textNome);
 		textNome.setColumns(10);
-		
-		textClassificacao = new JTextField();
-		textClassificacao.setBackground(SystemColor.menu);
-		textClassificacao.setColumns(10);
-		textClassificacao.setBounds(255, 101, 157, 20);
-		contentPane.add(textClassificacao);
 		
 		txtIdade = new JTextField();
 		txtIdade.setBackground(SystemColor.menu);
@@ -138,6 +136,27 @@ public class Cadastros extends JFrame {
 		btnContinuar.setForeground(SystemColor.desktop);
 		btnContinuar.setBounds(59, 184, 89, 23);
 		contentPane.add(btnContinuar);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"", "Crian\u00E7a", "Jovem", "Adulto", "Idoso"}));
+		comboBox.setBounds(255, 101, 157, 22);
+		contentPane.add(comboBox);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+				{null, null},
+			},
+			new String[] {
+				"Usuarios", "Idade"
+			}
+		));
+		table.setBounds(39, 238, 135, 85);
+		contentPane.add(table);
 	}
-
 }
